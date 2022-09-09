@@ -1,0 +1,16 @@
+{
+    "name": "cazen/tpcomposer",
+    "description": "composer exercice, with poo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [{
+        "name": "Twiningz",
+        "email": "cazeneuve.m@hotmail.fr"
+    }],
+    "require": {
+        "dompdf/dompdf": "*"
+    }
+}
