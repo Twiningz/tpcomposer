@@ -2,7 +2,7 @@
 
 namespace App\Lib\Class;
 
-use FPDF;
+use App\FPDF\FPDF;
 
 class Bill extends Document
 {

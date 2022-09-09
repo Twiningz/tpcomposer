@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib;
+namespace App\Models;
 
 abstract class RepositoryModel
 {
@@ -11,7 +11,7 @@ abstract class RepositoryModel
   public function __construct()
   {
     try {
-      $this->db = new PDO('mysql:host=localhost;dbname=exercice_composer', 'root', 'root');
+      $this->db = new \PDO('mysql:host=localhost;dbname=exercice_composer', 'root', 'root');
     } catch (\Exception $e) {
       die('Error : ' . $e->getMessage());
     }

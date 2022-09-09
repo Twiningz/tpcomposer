@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Lib\UserModel;
+use App\Models\UserModel;
 
 class HostController
 {
@@ -83,7 +83,7 @@ class HostController
       }
     }
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/login.php');
   }
 
   public function logOut()
@@ -100,6 +100,6 @@ class HostController
     header("Location: /index.php?page=login");
     exit;
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/login.php');
   }
 }

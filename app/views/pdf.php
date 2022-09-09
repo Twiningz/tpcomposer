@@ -35,4 +35,4 @@ if (!empty($errorMessage)) { ?>
 
 $content = ob_get_clean();
 
-require($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/layout.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/app/views/layouts/layout.php');

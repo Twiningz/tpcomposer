@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class UserController
 {
   protected $user_model;
@@ -81,6 +83,6 @@ class UserController
       }
     }
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/views/register.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/register.php');
   }
 }

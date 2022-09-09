@@ -2,6 +2,8 @@
 
 namespace App\Lib\Class;
 
+use App\Fpdf\FPDF;
+
 class Quote extends Document
 {
 

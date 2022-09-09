@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Lib\UserModel;
+use App\Lib\Class\Bill;
+use App\Lib\Class\Quote;
+use App\Models\UserModel;
 
 class PdfController
 {
@@ -19,7 +21,7 @@ class PdfController
 
   public function pdfPage()
   {
-    require($_SERVER['DOCUMENT_ROOT'] . '/views/pdf.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/pdf.php');
   }
 
   public function editPdf()
@@ -38,6 +40,6 @@ class PdfController
     }
 
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/views/pdf.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/pdf.php');
   }
 }
