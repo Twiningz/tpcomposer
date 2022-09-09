@@ -2,7 +2,7 @@
 
 namespace App\Lib\Class;
 
-use PdfableInterface;
+use App\Lib\Interface\PdfableInterface;
 
 abstract class Document implements PdfableInterface
 {

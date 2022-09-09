@@ -32,6 +32,11 @@ class Router
         $controller->register();
         break;
 
+      case 'crud':
+        $controller = new UserController;
+        $controller->crud();
+        break;
+
       case 'boo':
         $controller = new ErrorController;
         $controller->boo();

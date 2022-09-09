@@ -21,25 +21,44 @@ class PdfController
 
   public function pdfPage()
   {
+    $action = isset($_POST['action']) && !empty($_POST['action']) ? $_POST['action'] : "";
+
+    if ($action == "edit_pdf") {
+      $type = $_POST['type'];
+      $this->editPdf($type);
+    }
+
+    if ($action == "send_pdf") {
+      $type = $_POST['type'];
+      $this->sendMail($type);
+    }
+
     require($_SERVER['DOCUMENT_ROOT'] . '/app/views/pdf.php');
   }
 
-  public function editPdf()
+  public function editPdf($type)
   {
-    if (isset($_POST['edit_pdf'])) {
-
-      $type = $_POST['type'];
-
-      if ($type == 'bill') {
-        $object = new Bill(2);
-      } elseif ($type == 'quote') {
-        $object = new Quote(1);
-      }
-
-      if (isset($object)) $object->getGenerate();
+    if ($type == 'bill') {
+      $object = new Bill(2);
+    } elseif ($type == 'quote') {
+      $object = new Quote(1);
     }
 
+    if (isset($object)) {
+      $object->getGenerate();
+    }
+  }
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/app/views/pdf.php');
+  public function sendMail($type)
+  {
+    /* if ($type == 'bill') {
+      $object = new Bill(2);
+    } elseif ($type == 'quote') {
+      $object = new Quote(1);
+    }
+
+    if (isset($object)) {
+      $object->getGenerate();
+    } */
   }
 }

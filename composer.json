@@ -11,6 +11,7 @@
         "email": "cazeneuve.m@hotmail.fr"
     }],
     "require": {
-        "dompdf/dompdf": "*"
+        "dompdf/dompdf": "*",
+        "phpmailer/phpmailer": "*"
     }
 }

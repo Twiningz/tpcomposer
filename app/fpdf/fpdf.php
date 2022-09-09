@@ -8,9 +8,9 @@
  * Author:  Olivier PLATHEY                                                     *
  *******************************************************************************/
 
-define('FPDF_VERSION', '1.84');
-
 namespace App\Fpdf;
+
+define('FPDF_VERSION', '1.84');
 
 class FPDF
 {

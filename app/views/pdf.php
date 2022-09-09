@@ -19,18 +19,36 @@ if (!empty($errorMessage)) { ?>
 <?php
 }
 ?>
+<div class="row">
+  <div class="col">
 
-<h2 class="text-center">Edit pdf</h2>
+    <h2 class="text-center">Edit pdf</h2>
 
-<form action="" method='post'>
-  <select name="action">
-    <option value="bill">bill</option>
-    <option value="quote">quote</option>
-  </select>
+    <form class="text-center" action="" method='post'>
+      <select name="type">
+        <option value="bill">bill</option>
+        <option value="quote">quote</option>
+      </select>
 
-  <button type="submit" value="" formtarget="_blank">get a doc</button>
-</form>
+      <button type="submit" name="action" value="edit_pdf" formtarget="_blank">get a doc</button>
+    </form>
 
+  </div>
+
+  <div class="col">
+    <h2 class="text-center">Send mail</h2>
+
+    <form class="text-center" action="" method='post'>
+      <select name="type">
+        <option value="bill">bill</option>
+        <option value="quote">quote</option>
+      </select>
+
+      <button type="submit" name="action" value="send_mail" formtarget="_blank">send mail</button>
+    </form>
+
+  </div>
+</div>
 <?php
 
 $content = ob_get_clean();

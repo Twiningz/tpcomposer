@@ -9,6 +9,7 @@
         echo '<a href="/index.php?page=login">Login</a>';
     }
     echo '<a href="/index.php?page=pdf">PDFs</a>';
+    echo '<a href="/index.php?page=crud">CRUD</a>';
 
     ?>
 </center>

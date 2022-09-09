@@ -22,15 +22,14 @@ if (!empty($errorMessage)) { ?>
 
 <h2 class="text-center">Register</h2>
 
-<form action="" method="POST">
-    <div class="row">
-        <div class="col">
-            <h3>User infos</h3>
-            <p><label for="email">Email address :</label> <input id="email" type="text" name="email" value="<?= $email ?? '' ?>" required></p>
-            <p><label for="pass">Password :</label> <input id="pass" type="password" name="pass" value="<?= $pass ?? '' ?>" required></p>
-            <p><label for="confirm_pass">Password confirmation :</label> <input id="confirm_pass" value="<?= $confirm_pass ?? '' ?>" type="password" name="confirm_pass" required></p>
-            <p><label for="name">Name : </label> <input id="name" type="text" name="name" value="<?= $name ?? '' ?>" required></p>
-            <p><label for="surname">Surname : </label> <input id="surname" type="text" name="surname" value="<?= $surname ?? '' ?>" required></p>
+<form class="row d-flex justify-content-center" action="" method="POST">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4 p-2">
+            <p class="d-flex justify-content-between"><label for="email">Email address :</label> <input id="email" type="text" name="email" value="<?= $email ?? '' ?>" required></p>
+            <p class="d-flex justify-content-between"><label for="pass">Password :</label> <input id="pass" type="password" name="pass" value="<?= $pass ?? '' ?>" required></p>
+            <p class="d-flex justify-content-between"><label for="confirm_pass">Password confirmation :</label> <input id="confirm_pass" value="<?= $confirm_pass ?? '' ?>" type="password" name="confirm_pass" required></p>
+            <p class="d-flex justify-content-between"><label for="name">Name : </label> <input id="name" type="text" name="name" value="<?= $name ?? '' ?>" required></p>
+            <p class="d-flex justify-content-between"><label for="surname">Surname : </label> <input id="surname" type="text" name="surname" value="<?= $surname ?? '' ?>" required></p>
         </div>
     </div>
 
