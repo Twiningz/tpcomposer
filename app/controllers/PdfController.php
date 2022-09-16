@@ -22,6 +22,10 @@ class PdfController
     }
   }
 
+  /**
+   * displaying page to edit pdf / send pdf mail
+   * 
+   */
   public function pdfPage()
   {
     $action = isset($_POST['action']) && !empty($_POST['action']) ? $_POST['action'] : "";
@@ -39,6 +43,12 @@ class PdfController
     require($_SERVER['DOCUMENT_ROOT'] . '/app/views/pdf.php');
   }
 
+  /**
+   * getting an object based on a class
+   * 
+   * @param string $class
+   * @return bool|object false if failure, object if success
+   */
   public function getObject($class)
   {
     $object = false;
@@ -50,22 +60,43 @@ class PdfController
     return $object;
   }
 
+  /**
+   * Edit a pdf and send it to the navigator
+   * 
+   * @param string $type, type of a required pdf
+   * @return bool|int false if failure, 1 if success
+   */
   public function editPdf($type)
   {
     $object = $this->getObject(ucfirst($type));
     if ($object != false && isset($object)) {
-      $object->getGeneratedDocument();
+      return $object->getGeneratedDocument();
     }
+    return false;
   }
 
+  /**
+   * gets a pdf based on a type
+   * 
+   * @param string $type, type of a required pdf
+   * @return bool|int false if failure, 1 if success
+   */
   public function getPdf($type)
   {
     $object = $this->getObject(ucfirst($type));
     if ($object != false && isset($object)) {
       return $object->generateDocument();
     }
+    return false;
   }
 
+  /**
+   * Uploads a temp pdf file on the server
+   * 
+   * @param string $type, type of a required pdf
+   * @param string $path, path where to upload the file
+   * @return bool false if failure, true if success
+   */
   public function uploadTempPdf($type, $path)
   {
     $object = $this->getObject(ucfirst($type));
@@ -74,7 +105,13 @@ class PdfController
     }
   }
 
-  public function deleteTempPdf($path)
+  /**
+   * delete a file on the server
+   * 
+   * @param string $type, type of a required pdf
+   * @return bool false if failure, true if success
+   */
+  public function deleteFile($path)
   {
     if (file_exists($path)) {
       unlink($path);
@@ -83,7 +120,15 @@ class PdfController
     return false;
   }
 
-  public function sendMail($type)
+  /**
+   * Sends a mail
+   * 
+   * @param string $type, type of a required pdf
+   * @param string $content, mail content
+   * @param string $header, mail header
+   * @param string $footer, mail footer
+   */
+  public function sendMail($type = '', $content = '', $header = '', $footer = '')
   {
 
     $mail = new PHPMailer(true); //Argument true in constructor enables exceptions
@@ -130,7 +175,7 @@ class PdfController
     try {
       $mail->send();
 
-      if (isset($path) && !empty($path)) $this->deleteTempPdf($path);
+      if (isset($path) && !empty($path)) $this->deleteFile($path);
 
       $_SESSION['flash_message'] = '<p class="text-success">Your message has been sent successfully';
     } catch (PHPMailerException $e) {
