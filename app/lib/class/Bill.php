@@ -16,11 +16,9 @@ class Bill extends Document
     $this->payment_at = date('d-m-y h:i:s');
   }
 
-  public function getGenerate()
+  public function generateDocument()
   {
-
     ob_end_clean();
-    //require('fpdf/fpdf.php');
 
     // Instantiate and use the FPDF class 
     $pdf = new FPDF();
@@ -35,6 +33,6 @@ class Bill extends Document
     $pdf->Cell(60, 20, 'Hello Bill! Bill number : ' . $this->getNumero());
 
     // return the generated output
-    $pdf->Output('I');
+    return $pdf;
   }
 }

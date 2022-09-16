@@ -4,5 +4,6 @@ namespace App\Lib\Interface;
 
 interface PdfableInterface
 {
-  public function getGenerate();
+  //public function getGeneratedDocument();
+  public function generateDocument();
 }

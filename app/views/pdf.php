@@ -40,11 +40,12 @@ if (!empty($errorMessage)) { ?>
 
     <form class="text-center" action="" method='post'>
       <select name="type">
-        <option value="bill">bill</option>
-        <option value="quote">quote</option>
+        <option value="bill">Bill</option>
+        <option value="quote">Quote</option>
+        <option value="">Empty</option>
       </select>
 
-      <button type="submit" name="action" value="send_mail" formtarget="_blank">send mail</button>
+      <button type="submit" name="action" value="send_mail">send mail</button>
     </form>
 
   </div>

@@ -58,4 +58,22 @@ abstract class Document implements PdfableInterface
   {
     return $this->numero;
   }
+
+  public function getGeneratedDocument()
+  {
+    ob_end_clean();
+    $pdf = $this->generateDocument();
+    $pdf->Output('I');
+  }
+
+  public function uploadTemp($path)
+  {
+    ob_end_clean();
+
+    //Add a new page
+    $pdf = $this->generateDocument();
+
+    // return the generated output
+    $pdf->Output($path, 'F');
+  }
 }

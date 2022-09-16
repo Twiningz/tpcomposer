@@ -17,7 +17,7 @@ class Quote extends Document
     $this->release_at = date('d-m-y h:i:s');
   }
 
-  public function getGenerate()
+  public function getGeneratedDocument()
   {
 
     ob_end_clean();
@@ -35,8 +35,27 @@ class Quote extends Document
     // Prints a cell with given text 
     $pdf->Cell(60, 20, 'Hello Quote! Quote number : ' . $this->getNumero());
 
-
     // return the generated output
     $pdf->Output('I');
+  }
+
+  public function generateDocument()
+  {
+    ob_end_clean();
+
+    // Instantiate and use the FPDF class 
+    $pdf = new FPDF();
+
+    //Add a new page
+    $pdf->AddPage();
+
+    // Set the font for the text
+    $pdf->SetFont('Arial', 'B', 18);
+
+    // Prints a cell with given text 
+    $pdf->Cell(60, 20, 'Hello Quote! Quote number : ' . $this->getNumero());
+
+    // return the generated output
+    return $pdf;
   }
 }
